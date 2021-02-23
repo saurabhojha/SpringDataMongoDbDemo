@@ -44,6 +44,7 @@ public class CustomAuthorRepositoryImpl implements CustomAuthorRepository {
     @Override
     public List<Manga> getMangaByAuthor(String id) {
         Query query = getQuery(id);
+        query.fields().include("manga");
         return mongoTemplate.findOne(query,Author.class).getManga();
 
     }
