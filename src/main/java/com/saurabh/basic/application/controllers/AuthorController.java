@@ -45,16 +45,16 @@ public class AuthorController {
         return authorService.addAuthor(author);
     }
 
-    @PostMapping("/addMangaById/{id}")
-    public Optional<Author> addMangaById(@PathVariable String id, @RequestBody Manga manga) {
-        return authorService.addMangaById(id,manga);
-    }
-
     //Put requests
     @PutMapping("/updateAge/{id}")
     public Optional<Author> updateAge(@PathVariable String id, @RequestBody Map<String,Object> payload) {
 
         return authorService.updateAge(id, (int) ((Map<?, ?>) payload).get("age"));
+    }
+
+    @PutMapping("/addMangaById/{id}")
+    public Optional<Author> addMangaById(@PathVariable String id, @RequestBody Manga manga) {
+        return authorService.addMangaById(id,manga);
     }
 
     //Delete Requests
